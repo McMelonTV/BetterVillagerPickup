@@ -1,26 +1,27 @@
 {
 	"schemaVersion": 1,
-	"id": "villager-pickup",
+	"id": "villagerpickup",
 	"version": "${version}",
 	"name": "Villager Pickup",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A simple server-side mod that allows you to pick up villagers as items.",
 	"authors": [
-		"LivingLemming"
+		"LivingLemming",
+		"McMelon"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/McMelonTV/VillagerPickupNoSpawners",
+		"sources": "https://github.com/McMelonTV/VillagerPickupNoSpawners"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/villager-pickup/icon.png",
+	"icon": "assets/villagerpickup/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.livinglemming.ExampleMod"
+			"com.mcmelon.VillagerPickup"
 		]
 	},
 	"mixins": [
-		"villager-pickup.mixins.json"
+		"villagerpickup.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.19",
