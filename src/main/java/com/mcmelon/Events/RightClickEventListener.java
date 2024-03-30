@@ -40,19 +40,31 @@ public class RightClickEventListener {
 				Item spawnEgg = SpawnEggItem.forEntity(villager.getType());
 				if (spawnEgg != null) {
 					ItemStack spawnEggStack = new ItemStack(spawnEgg);
+
+					String name = "Villager";
+
+					boolean isBaby = villager.isBaby();
+					name = isBaby ? "Baby " + name : name;
+
 					String profession = villager.getVillagerData().getProfession().toString();
 					profession = profession.substring(0, 1).toUpperCase() + profession.substring(1);
-					String professionString = profession.contains("None") ? "" : profession + " ";
+					name = profession.contains("None") ? name : profession + " " + name;
+
+					String biome = villager.getVillagerData().getType().toString();
+					biome = biome.substring(0, 1).toUpperCase() + biome.substring(1);
+					name = biome + " " + name;
 
 					NbtCompound nbtCompound = new NbtCompound();
 					nbtCompound.put("EntityTag", nbt);
 
 					NbtCompound display = new NbtCompound();
-					display.putString(ItemStack.NAME_KEY, "{\"text\":\"" + professionString + "Villager\",\"color\":\"yellow\",\"italic\":false}");
+					display.putString(ItemStack.NAME_KEY, "{\"text\":\"" + name + "\",\"color\":\"yellow\",\"italic\":false}");
 
-					NbtList lore = new NbtList();
-					lore.add(NbtString.of("{\"text\":\"§7Contains Villager Data\",\"color\":\"gray\"}"));
-					display.put(ItemStack.LORE_KEY, lore);
+					String loreText = "Profession: " + profession + "\nBiome Type: " + biome + "\nBaby: " + isBaby;
+
+					NbtList loreTag = new NbtList();
+					loreTag.add(NbtString.of("{\"text\":\"" + loreText + "\",\"color\":\"gray\",\"italic\":false}"));
+					display.put(ItemStack.LORE_KEY, loreTag);
 
 					nbtCompound.put(ItemStack.DISPLAY_KEY, display);
 
