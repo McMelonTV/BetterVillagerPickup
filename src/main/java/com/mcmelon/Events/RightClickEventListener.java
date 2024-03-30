@@ -27,7 +27,7 @@ public class RightClickEventListener {
 			boolean isHoldingVillagerEgg = player.getStackInHand(hand).getItem() == SpawnEggItem
 					.forEntity(EntityType.VILLAGER);
 
-			if (entity instanceof VillagerEntity && isHoldingVillagerEgg) {
+			if (entity instanceof VillagerEntity && isHoldingVillagerEgg && !player.isSneaking()) {
 				player.sendMessage(Text.of("§cCannot spawn a villager into another villager"), true);
 				return ActionResult.FAIL;
 			}
