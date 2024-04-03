@@ -24,9 +24,10 @@ public class RightClickEventListener {
 				return ActionResult.PASS;
 			}
 
-			boolean isHoldingVillagerEgg = player.getStackInHand(hand).getItem() == SpawnEggItem
-					.forEntity(EntityType.VILLAGER);
+			boolean isHoldingVillagerEgg = player.getStackInHand(hand).getItem() == SpawnEggItem.forEntity(EntityType.VILLAGER);
 
+			// This is to prevent a weird bug where a baby villager without the NBT data is
+			// spawned when a player right clicks a villager with a villager spawn egg
 			if (entity instanceof VillagerEntity && isHoldingVillagerEgg && !player.isSneaking()) {
 				player.sendMessage(Text.of("§cCannot spawn a villager into another villager"), true);
 				return ActionResult.FAIL;
@@ -89,8 +90,7 @@ public class RightClickEventListener {
 
 		UseBlockCallback.EVENT.register((player, world, hand, blockHitResult) -> {
 			boolean isSpawner = world.getBlockState(blockHitResult.getBlockPos()).getBlock() == Blocks.SPAWNER;
-			boolean isVillagerEgg = player.getStackInHand(hand).getItem() == SpawnEggItem
-					.forEntity(EntityType.VILLAGER);
+			boolean isVillagerEgg = player.getStackInHand(hand).getItem() == SpawnEggItem.forEntity(EntityType.VILLAGER);
 
 			if (isSpawner && isVillagerEgg) {
 				player.sendMessage(Text.of("§cCannot use villager spawn egg on spawner"), true);
