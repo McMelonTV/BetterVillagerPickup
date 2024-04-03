@@ -1,10 +1,16 @@
-# Villager Pickup
+# VillagerPickupNoSpawners
+A simple **server-side** mod that allows you to pick up and place down villagers.
+Since this is a server-side mod, it works with vanilla clients.
 
-Allows you to pickup villagers into spawn eggs by **shift right clicking** on one. 
+This is a fork of [Villager Pickup](https://modrinth.com/mod/villager-pickup) which implements a fix to prevent players from putting picked up villagers into mob spawners.
+This fork also adds a few minor additions like showing the villager's profession and type in the item tooltip.
 
-The villager spawn egg will retain all nbt data of the villager which means it will stay the same way you picked it up.
+To pick up a villager, simply sneak and right click on them.
+To place them back down, use right click on any block while holding the villager spawn egg.
 
-### Compatibility
-Because of the way this mod is coded, it **works with all modded villagers** by default if they are not a separate entity (for example you can't pick up wandering traders) but this can be easily changed with a very small amount of coding knowledge.
+The villager spawn egg will retain all NBT data of the villager meaning it will stay the same way you picked it up.
 
-The mod is **fully server side** and vanilla clients can use it when it's installed on the server side.
+### Planned Features
+- [ ] Add health to the tooltip
+- [ ] Add trades to the tooltip
+- [ ] Add a config option to change what entities can be picked up
