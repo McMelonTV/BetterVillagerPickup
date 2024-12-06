@@ -1,4 +1,4 @@
-# VillagerPickupNoSpawners
+# Better Villager Pickup
 A simple **server-side** mod that allows you to pick up villagers.
 Since this is a server-side mod, it works with vanilla clients.
 
