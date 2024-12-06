@@ -6,8 +6,8 @@ env:
   MOD_VERSION: 1.1.0
   MINECRAFT_VERSION: 1.21.1
   JAVA_VERSION: 21
-  VERSION: ${{ env.MOD_VERSION }}+${{ env.MINECRAFT_VERSION }}
-  RELEASE_NAME: VillagerPickup ${{ env.MOD_VERSION }} for Minecraft ${{ env.MINECRAFT_VERSION }}
+  VERSION: 1.1.0+1.21.1
+  RELEASE_NAME: VillagerPickup 1.1.0 for Minecraft 1.21.1
 
 permissions:
   contents: write
