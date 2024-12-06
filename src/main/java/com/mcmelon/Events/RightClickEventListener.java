@@ -49,11 +49,8 @@ public class RightClickEventListener {
 				VillagerEntity villager = (VillagerEntity) entity;
 				NbtCompound villagerNbt = new NbtCompound();
 				villager.writeCustomDataToNbt(villagerNbt);
-
-				NbtCompound entityNbt = new NbtCompound();
-				villager.writeNbt(entityNbt);
-				entityNbt.putString("id", String.valueOf(villager.getId()));
-				NbtComponent nbtc = NbtComponent.of(entityNbt);
+				villagerNbt.putString("id", "");
+				NbtComponent nbtc = NbtComponent.of(villagerNbt);
 
 				Item spawnEgg = SpawnEggItem.forEntity(villager.getType());
 				if (spawnEgg != null) {
