@@ -24,9 +24,9 @@
 		"villagerpickup.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.19",
-		"minecraft": ">=1.20.1",
-		"java": ">=17",
+		"fabricloader": ">=0.16.9",
+		"minecraft": ">=1.21.1",
+		"java": ">=21",
 		"fabric-api": "*"
 	},
 	"suggests": {

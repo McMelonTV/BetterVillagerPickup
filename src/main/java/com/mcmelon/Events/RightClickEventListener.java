@@ -1,6 +1,8 @@
 package com.mcmelon.Events;
 
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.LoreComponent;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Entity.RemovalReason;
@@ -16,6 +18,8 @@ import net.minecraft.util.Hand;
 
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.Blocks;
+
+import java.util.List;
 
 public class RightClickEventListener {
 	public static void registerRightClickEvent() {
@@ -58,18 +62,25 @@ public class RightClickEventListener {
 					NbtCompound nbtCompound = new NbtCompound();
 					nbtCompound.put("EntityTag", nbt);
 
-					NbtCompound display = new NbtCompound();
-					display.putString(ItemStack.NAME_KEY, "{\"text\":\"" + name + "\",\"color\":\"yellow\",\"italic\":false}");
+					spawnEggStack.set(DataComponentTypes.ITEM_NAME, Text.of(name));
+					spawnEggStack.set(DataComponentTypes.LORE, new LoreComponent(List.of(
+						Text.of("Profession: " + profession),
+						Text.of("Biome Type: " + biome),
+						Text.of("Baby: " + isBaby)
+					)));
 
-					String loreText = "Profession: " + profession + "\nBiome Type: " + biome + "\nBaby: " + isBaby;
-
-					NbtList loreTag = new NbtList();
-					loreTag.add(NbtString.of("{\"text\":\"" + loreText + "\",\"color\":\"gray\",\"italic\":false}"));
-					display.put(ItemStack.LORE_KEY, loreTag);
-
-					nbtCompound.put(ItemStack.DISPLAY_KEY, display);
-
-					spawnEggStack.setNbt(nbtCompound);
+//					NbtCompound display = new NbtCompound();
+//					display.putString(ItemStack.NAME_KEY, "{\"text\":\"" + name + "\",\"color\":\"yellow\",\"italic\":false}");
+//
+//					String loreText = "Profession: " + profession + "\nBiome Type: " + biome + "\nBaby: " + isBaby;
+//
+//					NbtList loreTag = new NbtList();
+//					loreTag.add(NbtString.of("{\"text\":\"" + loreText + "\",\"color\":\"gray\",\"italic\":false}"));
+//					display.put(ItemStack.LORE_KEY, loreTag);
+//
+//					nbtCompound.put(ItemStack.DISPLAY_KEY, display);
+//
+//					spawnEggStack.setNbt(nbtCompound);
 
 					if (player.getStackInHand(Hand.MAIN_HAND).isEmpty()) {
 						player.setStackInHand(Hand.MAIN_HAND, spawnEggStack);
