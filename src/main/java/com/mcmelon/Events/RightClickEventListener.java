@@ -59,8 +59,8 @@ public class RightClickEventListener {
 					biome = biome.substring(0, 1).toUpperCase() + biome.substring(1);
 					name = biome + " " + name;
 
-					NbtCompound nbtCompound = new NbtCompound();
-					nbtCompound.put("EntityTag", nbt);
+//					NbtCompound nbtCompound = new NbtCompound();
+//					nbtCompound.put("EntityTag", nbt);
 
 					spawnEggStack.set(DataComponentTypes.ITEM_NAME, Text.of(name));
 					spawnEggStack.set(DataComponentTypes.LORE, new LoreComponent(List.of(
