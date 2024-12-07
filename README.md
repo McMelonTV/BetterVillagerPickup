@@ -6,9 +6,8 @@ This is a fork of [Villager Pickup](https://modrinth.com/mod/villager-pickup) wh
 This fork also adds a few additions like showing the villager's profession, type, health, workstation and bed locations and trades in the item tooltip.
 
 To pick up a villager, simply sneak and right click on them.
-To place them back down, use right click on any block while holding the villager spawn egg.
 
-The villager spawn egg will retain all NBT data of the villager meaning it will stay the same way you picked it up.
+The villager spawn egg will retain all NBT data of the villager meaning it will stay the same way you picked it up. (keep xp, trades, etc)
 
 ### Planned Features
-- [ ] Add a config option to change what entities can be picked up
+- Add a config option to change which entities can be picked up
