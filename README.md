@@ -1,3 +1,5 @@
+![Modrinth Downloads](https://img.shields.io/modrinth/dt/better-villager-pickup?style=for-the-badge&logo=modrinth&color=green)
+
 # Better Villager Pickup
 A simple **server-side** mod that allows you to pick up villagers.
 Since this is a server-side mod, it works with vanilla clients.
