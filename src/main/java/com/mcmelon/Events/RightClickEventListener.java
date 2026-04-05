@@ -25,8 +25,6 @@ import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.List;
 
 public class RightClickEventListener {
@@ -69,9 +67,7 @@ public class RightClickEventListener {
 					biome = biome.substring(0, 1).toUpperCase() + biome.substring(1);
 					name = biome + " " + name;
 
-					float hl = villager.getHealth();
-					BigDecimal hlbd = new BigDecimal(hl).setScale(1, RoundingMode.UNNECESSARY);
-                    String health = hlbd + " / " + villager.getMaxHealth() + " ❤";
+					String health = String.format(java.util.Locale.ROOT, "%.1f / %.1f ❤", villager.getHealth(), villager.getMaxHealth());
 
 					List<String> tradesList = new java.util.ArrayList<>(List.of());
 					NbtList tradeList = villagerNbt.getCompound("Offers").getList("Recipes", 10);
